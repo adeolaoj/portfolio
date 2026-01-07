@@ -3,19 +3,19 @@
 :root {
   --font-size: 16px;
   --background: #fffbf7;
-  --foreground: oklch(0.145 0 0);
+  --foreground: #e4ddf0;
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #00B4B9;
+  --primary: #FCD787;
   --primary-foreground: #ffffff;
-  --secondary: #ffd8c4;
-  --secondary-foreground: #523a2c;
+  --secondary: #c4ceff;
+  --secondary-foreground: #5a3868;
   --muted: #f5e8df;
-  --muted-foreground: #8b6f5c;
-  --accent: #027DAB;
-  --accent-foreground: #ffffff;
+  --muted-foreground: #C4C9F2;
+  --accent: #ffffff;
+  --accent-foreground: #dbb302;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(217, 119, 66, 0.15);
