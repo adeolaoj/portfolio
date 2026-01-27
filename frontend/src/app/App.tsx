@@ -28,7 +28,7 @@ export default function App() {
     },
     {
       title: "Ask Adeola - A Chatbot For My Personal Website",
-      description: "Built and deployed a responsive personal portfolio website to showcase projects, resume, and contact information using Flask and React. Designed a modern user interface using HTML, CSS, and JavaScript. Built chatbot widget for website using a custom-trained neural network (TensorFlow/Keras) with natural language processing (NLTK) and Flask for backend integration. Implemented responsive UI/UX with HTML/CSS/JavaScript and deployed via Flask server.",
+      description: "Built a chatbot widget that answers questions about me using a custom-trained neural network (TensorFlow/Keras) with natural language processing (NLTK) and Flask for backend integration. Implemented responsive UI/UX with HTML/CSS/JavaScript and deployed via Flask server.",
       tech: ["Python", "Tensorflow", "NLTK", "Flask", "React"],
       github: "https://github.com/adeolaoj/portfolio-chatbot",
     },
