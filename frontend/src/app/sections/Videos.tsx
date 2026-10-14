@@ -6,6 +6,7 @@ import { videos, videosIntro, type Video } from "../data/videos";
 
 const thumbnail = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 const watchUrl = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+const label = (v: Video) => v.title ?? "Watch on YouTube";
 
 // If a thumbnail fails to load, hide it so only the dark tile shows.
 const hideOnError = (e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -23,7 +24,7 @@ function LatestVideo({ video }: { video: Video }) {
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
-            title={video.title}
+            title={video.title ?? "YouTube video"}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="size-full"
@@ -32,7 +33,7 @@ function LatestVideo({ video }: { video: Video }) {
           <button
             type="button"
             onClick={() => setPlaying(true)}
-            aria-label={`Play video: ${video.title}`}
+            aria-label={video.title ? `Play video: ${video.title}` : "Play video"}
             className="group absolute inset-0 flex items-center justify-center"
           >
             <img src={thumbnail(video.id)} alt="" onError={hideOnError} className="absolute inset-0 size-full object-cover" />
@@ -42,7 +43,7 @@ function LatestVideo({ video }: { video: Video }) {
           </button>
         )}
       </div>
-      <span className="text-[19px] font-medium">{video.title}</span>
+      {video.title && <span className="text-[19px] font-medium">{video.title}</span>}
     </div>
   );
 }
@@ -60,7 +61,7 @@ function VideoListItem({ video }: { video: Video }) {
           <img src={thumbnail(video.id)} alt="" loading="lazy" onError={hideOnError} className="size-full object-cover" />
         </span>
         <span className="flex flex-col gap-1">
-          <span className="font-medium transition-colors group-hover:text-blush">{video.title}</span>
+          <span className="font-medium transition-colors group-hover:text-blush">{label(video)}</span>
           {video.date && <span className="eyebrow text-[11px] text-blush">{video.date}</span>}
         </span>
       </a>
