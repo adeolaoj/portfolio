@@ -61,7 +61,7 @@ function FeaturedCard({ project }: { project: Project }) {
             <ul className="flex flex-col gap-2.5">
               {project.highlights.map((h) => (
                 <li key={h} className="flex gap-3 leading-relaxed text-ink-soft">
-                  <span aria-hidden="true" className="text-terracotta-deep">✦</span>
+                  <span aria-hidden="true" className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-terracotta-deep" />
                   <span>{h}</span>
                 </li>
               ))}

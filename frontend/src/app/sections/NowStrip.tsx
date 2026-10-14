@@ -10,7 +10,7 @@ export function NowStrip() {
             key={item.label}
             className={`flex flex-col gap-2.5 py-6 md:py-7 ${i > 0 ? "border-t border-line md:border-t-0 md:border-l md:pl-7" : "md:pr-7"}`}
           >
-            <span className="eyebrow text-terracotta-deep">✦ {item.label}</span>
+            <span className="eyebrow text-terracotta-deep">{item.label}</span>
             <span className="text-lg leading-normal">{item.text}</span>
           </div>
         ))}
