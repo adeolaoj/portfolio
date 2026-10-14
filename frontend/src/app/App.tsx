@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { SiRefinedgithub, SiYoutube} from '@icons-pack/react-simple-icons';
 import LinkedinIcon from "./components/LinkedInIcon";
-import { Mail, ExternalLink, Code, Briefcase, Earth, Star } from "lucide-react";
+import { Mail, ExternalLink, Code } from "lucide-react";
 import { Card } from "./components/ui/card";
 import { Typewriter } from "./components/Typewriter";
-import { GlassCardDeck } from "./components/GlassCardDeck";
-import Silk from "./components/Silk";
 
 
 type Tab = "about" | "projects" | "extras";
@@ -47,53 +45,28 @@ export default function App() {
     "Adobe Creative Suite", "Agile Methodologies",
   ];
 
+  const tabClass = (tab: Tab) =>
+    `transition-colors cursor-pointer eyebrow min-h-11 ${
+      activeTab === tab
+        ? "text-terracotta-deep"
+        : "text-ink-muted hover:text-ink"
+    }`;
+
   return (
-    <div className="min-h-screen relative">
-      {/* Background */}
-      <div className="fixed inset-0 bg-[#353990] -z-10">
-          <Silk
-            speed={2.0}
-            scale={0.6}
-            color="#002d97ff"
-            noiseIntensity={1.5}
-            rotation={0.6}
-          />
-      </div>
-      
+    <div className="min-h-screen bg-cream text-ink">
       {/* Header */}
-      <header className="bg-transparent border-b border-border/50 sticky top-0 z-10 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 py-6">
+      <header className="sticky top-0 z-10 border-b border-line bg-cream/90 backdrop-blur-md">
+        <div className="container-page py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent font-semibold">Adeola Ojuade</h1>
+            <h1 className="text-xl font-semibold text-ink">Adeola Ojuade</h1>
             <nav className="flex gap-8">
-              <button
-                onClick={() => setActiveTab("about")}
-                className={`transition-colors cursor-pointer text-sm uppercase tracking-wide ${
-                  activeTab === "about"
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
+              <button onClick={() => setActiveTab("about")} className={tabClass("about")}>
                 home
               </button>
-              <button
-                onClick={() => setActiveTab("projects")}
-                className={`transition-colors cursor-pointer text-sm uppercase tracking-wide ${
-                  activeTab === "projects"
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
+              <button onClick={() => setActiveTab("projects")} className={tabClass("projects")}>
                 projects
               </button>
-              <button
-                onClick={() => setActiveTab("extras")}
-                className={`transition-colors cursor-pointer text-sm uppercase tracking-wide ${
-                  activeTab === "extras"
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
+              <button onClick={() => setActiveTab("extras")} className={tabClass("extras")}>
                 extras
               </button>
             </nav>
@@ -102,29 +75,29 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="container-page py-12">
         {/* About Tab */}
         {activeTab === "about" && (
           <div className="space-y-20">
             {/* Hero Section */}
-            <section className="min-h-[80vh] grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
+            <section className="min-h-[70vh] flex flex-col justify-center">
+              <div className="space-y-8 max-w-3xl">
                 {/* Category tags */}
-                <div className="flex gap-4 text-sm">
-                  <span className="text-white/70 rounded-full border border-white/30 backdrop-blur-lg shadow-md hover:scale-105 transition-all leading-tight bg-gray/30 py-1 px-3">student</span>
-                  <span className="text-white/70 rounded-full border border-white/30 backdrop-blur-lg shadow-md hover:scale-105 transition-all leading-tight bg-gray/30 py-1 px-3">developer</span>
-                  <span className="text-white/70 rounded-full border border-white/30 backdrop-blur-lg shadow-md hover:scale-105 transition-all leading-tight bg-gray/30 py-1 px-3">creator</span>
+                <div className="flex gap-3 text-sm">
+                  <span className="rounded-full border border-line-strong px-3 py-1 text-ink-soft">student</span>
+                  <span className="rounded-full border border-line-strong px-3 py-1 text-ink-soft">developer</span>
+                  <span className="rounded-full border border-line-strong px-3 py-1 text-ink-soft">creator</span>
                 </div>
-                
+
                 {/* Main heading */}
                 <div>
-                  <h1 className="text-6xl md:text-7xl mb-2 text-foreground leading-tight">
+                  <h1 className="text-6xl md:text-7xl mb-2 text-ink leading-tight">
                     Hello, I'm
                   </h1>
-                  <h1 className="text-6xl md:text-7xl mb-6 bg-gradient-to-r from-accent via-accent to-[#C4C9F2] bg-clip-text text-transparent leading-tight">
+                  <h1 className="text-6xl md:text-7xl mb-6 text-sage leading-tight">
                     Adeola Ojuade
                   </h1>
-                  <p className="text-xl text-primary h-8 mb-6">
+                  <p className="text-xl text-terracotta-deep h-8 mb-6">
                     <Typewriter
                       texts={[
                         "Computer Science Student",
@@ -139,18 +112,18 @@ export default function App() {
                     />
                   </p>
                 </div>
-                
+
                 {/* Description */}
-                <p className="text-accent/90 leading-relaxed text-lg max-w-lg">
+                <p className="text-ink-soft leading-relaxed text-lg max-w-lg">
                   I'm a fourth year CS student passionate about developing user-centered products to create impact.
                   My biggest interests are AI, web development, and UI/UX design. When I'm not coding, you'll find me vlogging on my Youtube channel!
                 </p>
-                
+
                 {/* CTA Buttons */}
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   <a
                     href="mailto:adeolaojuade1@gmail.com"
-                    className="inline-flex items-center gap-2 px-8 py-4 backdrop-blur-lg border border-white/30 bg-gray/5 text-white rounded-lg hover:shadow-lg hover:scale-105 hover:bg-white/20 transition-all font-medium"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full bg-terracotta px-7 font-medium text-primary-foreground transition-colors hover:bg-terracotta-hover"
                   >
                     <Mail size={20} />
                     Get in touch
@@ -161,30 +134,22 @@ export default function App() {
                       e.preventDefault();
                       window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' });
                     }}
-                    className="inline-flex items-center gap-2 px-8 py-4 text-foreground hover:text-primary transition-colors font-medium"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-full border border-line-strong px-7 font-medium text-ink transition-colors hover:border-ink"
                   >
                     Learn more
                   </a>
                 </div>
               </div>
-              
-              {/* What I Build */}
-              <div className="relative flex items-center justify-center">
-                <div className="relative w-full max-w-md">
-                  <div className="absolute inset-0 rounded-3xl blur-3xl"></div>
-                  <GlassCardDeck />
-                </div>
-              </div>
             </section>
-            
+
             {/* Skills Section */}
             <section className="space-y-6">
-              <h2 className="text-3xl bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">What I Work With</h2>
+              <h2 className="text-3xl text-ink">What I Work With</h2>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 bg-gradient-to-br from-white/30 to-secondary/30 border border-border rounded-lg text-foreground hover:border-primary/40 hover:shadow-md transition-all cursor-default hover:scale-105"
+                    className="rounded-full border border-line bg-paper px-4 py-2 text-ink-soft"
                   >
                     {skill}
                   </span>
@@ -194,20 +159,20 @@ export default function App() {
 
             {/* Education & Contact */}
             <section className="grid md:grid-cols-2 gap-8">
-              <Card className="p-6 space-y-4 bg-gradient-to-br from-white/20 to-secondary/20 border-border backdrop-blur-lg hover:shadow-lg transition-shadow">
-                <h3 className="text-xl text-foreground">Education</h3>
+              <Card className="p-6 space-y-4 rounded-card border-line bg-paper">
+                <h3 className="text-xl text-ink">Education</h3>
                 <div>
-                  <p className="text-foreground">Bachelor of Science in Computer Science • Johns Hopkins University</p>
-                  <p className="text-muted-foreground">Expected Graduation: May 2026</p>
-                  <p className="text-muted-foreground">Pursuing Masters' in the Fall</p>
+                  <p className="text-ink">Bachelor of Science in Computer Science • Johns Hopkins University</p>
+                  <p className="text-ink-muted">Expected Graduation: May 2026</p>
+                  <p className="text-ink-muted">Pursuing Masters' in the Fall</p>
                 </div>
               </Card>
-              <Card className="p-6 space-y-4 bg-gradient-to-br from-white/20 to-secondary/20 border-border backdrop-blur-lg hover:shadow-lg transition-shadow">
-                <h3 className="text-xl text-foreground">Get In Touch</h3>
+              <Card className="p-6 space-y-4 rounded-card border-line bg-paper">
+                <h3 className="text-xl text-ink">Get In Touch</h3>
                 <div className="space-y-3">
                   <a
                     href="mailto:adeolaojuade1@gmail.com"
-                    className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors"
+                    className="flex items-center gap-3 text-ink-soft hover:text-terracotta-deep transition-colors"
                   >
                     <Mail size={20} />
                     adeolaojuade1@gmail.com
@@ -216,7 +181,7 @@ export default function App() {
                     href="https://github.com/adeolaoj"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors"
+                    className="flex items-center gap-3 text-ink-soft hover:text-terracotta-deep transition-colors"
                   >
                     <SiRefinedgithub size={20} />
                     github.com/adeolaoj
@@ -225,7 +190,7 @@ export default function App() {
                     href="https://linkedin.com/in/adeolaojuade"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors"
+                    className="flex items-center gap-3 text-ink-soft hover:text-terracotta-deep transition-colors"
                   >
                     <LinkedinIcon size={20} />
                     linkedin.com/in/adeolaojuade
@@ -240,9 +205,9 @@ export default function App() {
         {activeTab === "projects" && (
           <div className="space-y-8">
             <div className="text-center space-y-4">
-              <h1 className="text-4xl text-foreground">Things I've Built 🚀</h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Here are some projects I'm proud of! Each one has taught me something new 
+              <h1 className="text-4xl text-ink">Things I've Built 🚀</h1>
+              <p className="text-ink-muted max-w-2xl mx-auto">
+                Here are some projects I'm proud of! Each one has taught me something new
                 and pushed me to grow as a developer.
               </p>
             </div>
@@ -258,17 +223,17 @@ export default function App() {
                     className="block"
                   >
                     <Card
-                      className="p-6 space-y-4 bg-white/10 backdrop-blur-lg border-border border-white/40 hover:border-primary/40 transition-all hover:shadow-lg hover:scale-[1.02]"
+                      className="p-6 space-y-4 h-full rounded-card border-line bg-paper transition-colors hover:border-terracotta-deep"
                     >
                       <div className="flex items-start justify-between">
-                        <Code className="text-primary" size={32} />
+                        <Code className="text-sage" size={32} />
                         <div className="flex gap-2">
                           {project.github && (
                             <a
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-muted-foreground hover:text-primary transition-colors"
+                              className="text-ink-muted hover:text-terracotta-deep transition-colors"
                               title="View on GitHub"
                               onClick={(e) => e.stopPropagation()}
                             >
@@ -280,7 +245,7 @@ export default function App() {
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-muted-foreground hover:text-primary transition-colors"
+                              className="text-ink-muted hover:text-terracotta-deep transition-colors"
                               title="View Demo"
                               onClick={(e) => e.stopPropagation()}
                             >
@@ -290,8 +255,8 @@ export default function App() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl mb-2 text-foreground">{project.title}</h3>
-                        <p className="text-foreground/70 leading-relaxed">
+                        <h3 className="text-xl mb-2 text-ink">{project.title}</h3>
+                        <p className="text-ink-soft leading-relaxed">
                           {project.description}
                         </p>
                       </div>
@@ -299,7 +264,7 @@ export default function App() {
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 bg-secondary/50 text-white/70 rounded-md text-sm"
+                            className="rounded-full bg-peach px-3 py-1 text-sm text-ink-soft"
                           >
                             {tech}
                           </span>
@@ -317,8 +282,8 @@ export default function App() {
         {activeTab === "extras" && (
           <div className="space-y-12">
             <div className="text-center space-y-4">
-              <h1 className="text-4xl text-foreground">Some Fun Stuff 🤗</h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <h1 className="text-4xl text-ink">Some Fun Stuff 🤗</h1>
+              <p className="text-ink-muted max-w-2xl mx-auto">
                 Outside of code, I explore my creative side through vlogging, design, and more!
               </p>
             </div>
@@ -326,10 +291,10 @@ export default function App() {
             {/* YouTube Section */}
             <section className="space-y-6">
               <div className="flex items-center gap-3">
-                <h2 className="text-3xl text-foreground">My YouTube Channel 📹</h2>
+                <h2 className="text-3xl text-ink">My YouTube Channel 📹</h2>
               </div>
-              <Card className="p-6 bg-card/20 backdrop-blur-lg border-border hover:shadow-lg transition-shadow">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-4">
+              <Card className="p-6 rounded-feature border-0 bg-cocoa text-on-dark">
+                <div className="aspect-video bg-ink rounded-card overflow-hidden mb-4">
                   <iframe
                     width="100%"
                     height="100%"
@@ -341,14 +306,14 @@ export default function App() {
                     className="w-full h-full"
                   ></iframe>
                 </div>
-                <p className="text-foreground/80 mb-4">
+                <p className="text-on-dark-muted mb-4">
                   I love vlogging and making fun videos with my friends and family. It's an outlet I use to connect with others :)
                 </p>
                 <a
                   href="https://www.youtube.com/@adeola_o"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-foreground to-primary text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+                  className="inline-flex min-h-12 w-fit items-center gap-2 rounded-full bg-cream px-6 font-medium text-ink transition-colors hover:bg-peach"
                 >
                   <SiYoutube size={20} />
                   Check out my channel? 👀
@@ -356,48 +321,24 @@ export default function App() {
               </Card>
             </section>
             {/*
-              Fun Facts & Interests
-              <section className="grid md:grid-cols-3 gap-6">
-                <h2 className="text-3xl text-foreground">More About Me</h2>
-                <Card className="p-6 space-y-3 bg-card border-border text-center hover:shadow-lg transition-all hover:scale-105">
-                  <Earth className="text-primary mx-auto" size={40} />
-                  <h3 className="text-xl text-black">Environmentalist 🌍</h3>
-                  <p className="text-gray-600">
-                    I've always been really passionate about sustainability and I hope to contribute to
-                    technology that helps tacke the climate crisis 😄
-                  </p>
-                </Card>
-                <Card className="p-6 space-y-3 bg-card border-border text-center hover:shadow-lg transition-all hover:scale-105">
-                  <Briefcase className="text-accent mx-auto" size={40} />
-                  <h3 className="text-xl text-foreground">Hackathon Junkie 🏆</h3>
-                  <p className="text-muted-foreground">
-                    8+ hackathons and counting! Nothing beats the rush of building something cool in 24 hours. 
-                    Proudly snagged 2nd place at HackTech 2025!
-                  </p>
-                </Card>
-                <Card className="p-6 space-y-3 bg-card border-border text-center hover:shadow-lg transition-all hover:scale-105">
-                  <Star className="text-accent mx-auto" size={40} />
-                  <h3 className="text-xl text-foreground">Open Source Fan 🌟</h3>
-                  <p className="text-muted-foreground">
-                    Contributing to projects that help developers worldwide is incredibly rewarding. 
-                    Love being part of this amazing community!
-                  </p>
-                </Card>
-              </section>
+              Fun Facts & Interests (hidden). Content to reuse later:
+              - Environmentalist: passionate about sustainability and technology that helps tackle the climate crisis.
+              - Hackathon Junkie: 8+ hackathons and counting, 2nd place at HackTech 2025.
+              - Open Source Fan: enjoys contributing to projects that help developers worldwide.
             */}
             {/* Current Interests */}
             <section className="space-y-6">
-              <h2 className="text-3xl text-foreground">What I'm Exploring Right Now</h2>
+              <h2 className="text-3xl text-ink">What I'm Exploring Right Now</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 hover:shadow-lg transition-all hover:scale-[1.02]">
-                  <h3 className="text-xl mb-3 text-foreground">Recommendation Systems 😍</h3>
-                  <p className="text-foreground/70">
+                <Card className="p-6 rounded-card border-line bg-paper">
+                  <h3 className="text-xl mb-3 text-ink">Recommendation Systems 😍</h3>
+                  <p className="text-ink-soft">
                     Currently teaching myself how to build recommendation systems using collaborative filtering and NLP techniques!
                   </p>
                 </Card>
-                <Card className="p-6 bg-gradient-to-br from-accent/10 to-secondary/20 border-accent/20 hover:shadow-lg transition-all hover:scale-[1.02]">
-                  <h3 className="text-xl mb-3 text-foreground">Cloud Architecture ☁️</h3>
-                  <p className="text-foreground/70">
+                <Card className="p-6 rounded-card border-line bg-paper">
+                  <h3 className="text-xl mb-3 text-ink">Cloud Architecture ☁️</h3>
+                  <p className="text-ink-soft">
                     Diving into AWS and learning how to build scalable, resilient systems.
                   </p>
                 </Card>
@@ -408,10 +349,10 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-20 bg-grey-100 bg-opacity-10 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-8">
+      <footer className="mt-20 border-t border-line bg-peach">
+        <div className="container-page py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/40">
+            <p className="text-ink-muted">
               © 2026 Adeola Ojuade. Built with React & Tailwind CSS.
             </p>
             <div className="flex gap-6">
@@ -419,7 +360,8 @@ export default function App() {
                 href="https://github.com/adeolaoj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-primary transition-colors"
+                aria-label="GitHub"
+                className="text-ink-muted hover:text-terracotta-deep transition-colors"
               >
                 <SiRefinedgithub size={24} />
               </a>
@@ -427,13 +369,15 @@ export default function App() {
                 href="https://www.linkedin.com/in/adeolaojuade"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/40 hover:text-primary transition-colors"
+                aria-label="LinkedIn"
+                className="text-ink-muted hover:text-terracotta-deep transition-colors"
               >
                 <LinkedinIcon size={24} />
               </a>
               <a
                 href="mailto:adeolaojuade1@gmail.com"
-                className="text-white/40 hover:text-primary transition-colors"
+                aria-label="Email"
+                className="text-ink-muted hover:text-terracotta-deep transition-colors"
               >
                 <Mail size={24} />
               </a>

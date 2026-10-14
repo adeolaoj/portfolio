@@ -1,81 +1,86 @@
-@custom-variant dark (&:is(.dark *));
+/*
+ * Design tokens for the warm redesign.
+ *
+ * Brand colors are available as Tailwind utilities, e.g. `bg-cream`,
+ * `text-terracotta-deep`, `border-line`. The semantic names below them
+ * (`background`, `primary`, `muted-foreground`…) keep the shadcn/ui
+ * components in components/ui working with the same palette.
+ */
 
-:root {
-  --font-size: 16px;
-  --background: #fffbf7;
-  --foreground: #e4ddf0;
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #FCD787;
-  --primary-foreground: #ffffff;
-  --secondary: #c4ceff;
-  --secondary-foreground: #5a3868;
-  --muted: #f5e8df;
-  --muted-foreground: #C4C9F2;
-  --accent: #ffffff;
-  --accent-foreground: #dbb302;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(217, 119, 66, 0.15);
-  --input: transparent;
-  --input-background: #fff4ec;
-  --switch-background: #e8c4ad;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --ring: #d97742;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #d97742;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fff4ec;
-  --sidebar-accent-foreground: #523a2c;
-  --sidebar-border: rgba(217, 119, 66, 0.15);
-  --sidebar-ring: #d97742;
+@theme {
+  --font-sans: 'Jost Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Grounds */
+  --color-cream: #F7EDE0;
+  --color-peach: #F2DEC7;
+  --color-paper: #FBF6EF;
+  --color-cocoa: #4A3B2F;
+
+  /* Text */
+  --color-ink: #33291F;
+  --color-ink-soft: #4D4034;
+  --color-ink-muted: #6A5A4B;
+  --color-on-dark: #F7EDE0;
+  --color-on-dark-muted: #E8DCCB;
+
+  /* Accents */
+  --color-terracotta: #CF7D65;
+  --color-terracotta-hover: #B9664F;
+  --color-terracotta-deep: #A4513A; /* text-safe terracotta on light grounds */
+  --color-sage: #5F7F76;
+  --color-sage-light: #99B4AA;
+  --color-blush: #E1B8A2;
+  --color-olive: #6B6D43;
+  --color-olive-light: #ABA66F;
+
+  /* Lines */
+  --color-line: #E3D3C0;
+  --color-line-strong: #CDB8A2;
+
+  /* Rounded corners: cards 20px, featured blocks 24px, buttons are pills */
+  --radius-card: 1.25rem;
+  --radius-feature: 1.5rem;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+:root {
+  --radius: 1.25rem;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+  --card: var(--color-paper);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-paper);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-terracotta);
+  --primary-foreground: #2A2119;
+  --secondary: var(--color-peach);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-peach);
+  --muted-foreground: var(--color-ink-muted);
+  --accent: var(--color-sage);
+  --accent-foreground: var(--color-cream);
+  --destructive: #B42318;
+  --destructive-foreground: #FFFFFF;
+  --border: var(--color-line);
+  --input: var(--color-line-strong);
+  --input-background: var(--color-paper);
+  --switch-background: var(--color-line-strong);
+  --ring: var(--color-terracotta-deep);
+
+  --chart-1: var(--color-terracotta);
+  --chart-2: var(--color-sage);
+  --chart-3: var(--color-olive);
+  --chart-4: var(--color-blush);
+  --chart-5: var(--color-olive-light);
+
+  --sidebar: var(--color-paper);
+  --sidebar-foreground: var(--color-ink);
+  --sidebar-primary: var(--color-terracotta);
+  --sidebar-primary-foreground: #2A2119;
+  --sidebar-accent: var(--color-peach);
+  --sidebar-accent-foreground: var(--color-ink);
+  --sidebar-border: var(--color-line);
+  --sidebar-ring: var(--color-terracotta-deep);
 }
 
 @theme inline {
@@ -105,8 +110,8 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
@@ -119,63 +124,69 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Page container: 1180px max, 32px side padding (16px on phones) */
+@utility container-page {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Small spaced-out capital labels ("✦ STUDYING", "OPEN TO FULL-TIME ROLES") */
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
   html {
-    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* keeps anchored sections clear of the sticky nav */
+    -webkit-text-size-adjust: 100%;
   }
 
-  h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
-  h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
+  h1,
+  h2,
+  h3,
   h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
 
-  label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
-  button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+  ::selection {
+    background-color: var(--color-blush);
+    color: var(--color-ink);
   }
 
-  input {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta-deep);
+    outline-offset: 3px;
   }
 }
