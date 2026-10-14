@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 import { featuredProject, otherProjects, type Project } from "../data/projects";
 import { links } from "../data/profile";
 
@@ -47,7 +48,7 @@ function FeaturedCard({ project }: { project: Project }) {
       href={projectHref(project)}
       target="_blank"
       rel="noopener noreferrer"
-      className="mb-10 grid overflow-hidden rounded-feature border border-line bg-paper transition-colors hover:border-terracotta-deep md:grid-cols-[1.3fr_1fr]"
+      className="grid overflow-hidden rounded-feature border border-line bg-paper transition-colors hover:border-terracotta-deep md:grid-cols-[1.3fr_1fr] motion-safe:transition-[transform,border-color,box-shadow] motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0_16px_32px_-20px_rgba(51,41,31,0.45)]"
     >
       <Screenshot project={project} ground="bg-sage-light" className="aspect-[16/10] md:aspect-auto md:min-h-[400px] md:p-8" />
       <div className="flex flex-col justify-between gap-6 p-6 md:p-10">
@@ -92,7 +93,7 @@ function ProjectCard({ project, ground }: { project: Project; ground: string }) 
       href={projectHref(project)}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col overflow-hidden rounded-card border border-line bg-paper transition-colors hover:border-terracotta-deep"
+      className="flex h-full flex-col overflow-hidden rounded-card border border-line bg-paper transition-colors hover:border-terracotta-deep motion-safe:transition-[transform,border-color,box-shadow] motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0_16px_32px_-20px_rgba(51,41,31,0.45)]"
     >
       <Screenshot project={project} ground={ground} className="aspect-[16/10]" />
       <div className="flex grow flex-col gap-3 p-6">
@@ -112,7 +113,7 @@ export function Work() {
   return (
     <section id="work" className="bg-peach py-24 md:py-30">
       <div className="container-page">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+        <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <h2 className="text-4xl tracking-tight md:text-5xl">Things I've built</h2>
           <a
             href={links.github}
@@ -123,13 +124,19 @@ export function Work() {
             All repositories on GitHub
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
-        </div>
+        </Reveal>
 
-        {featuredProject && <FeaturedCard project={featuredProject} />}
+        {featuredProject && (
+          <Reveal className="mb-10">
+            <FeaturedCard project={featuredProject} />
+          </Reveal>
+        )}
 
         <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {otherProjects.map((p, i) => (
-            <ProjectCard key={p.title} project={p} ground={grounds[i % grounds.length]} />
+            <Reveal key={p.title} delay={(i % 3) * 90} className="h-full">
+              <ProjectCard project={p} ground={grounds[i % grounds.length]} />
+            </Reveal>
           ))}
         </div>
       </div>

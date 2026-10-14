@@ -1,3 +1,4 @@
+import { Reveal } from "../components/Reveal";
 import { links, profile } from "../data/profile";
 
 export function Contact() {
@@ -11,13 +12,15 @@ export function Contact() {
   return (
     <footer id="contact" className="bg-peach">
       <div className="container-page flex flex-col items-center gap-6 pt-24 pb-10 text-center md:pt-30">
-        <h2 className="text-[clamp(2.75rem,6.4vw,5.5rem)] leading-none tracking-[-0.04em]">Let's build something.</h2>
-        <a
-          href={`mailto:${profile.email}`}
-          className="inline-flex min-h-14 items-center rounded-full bg-terracotta px-8 text-[17px] font-medium text-primary-foreground transition-colors hover:bg-terracotta-hover"
-        >
-          {profile.email}
-        </a>
+        <Reveal className="flex flex-col items-center gap-6">
+          <h2 className="text-[clamp(2.75rem,6.4vw,5.5rem)] leading-none tracking-[-0.04em]">Let's build something.</h2>
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-flex min-h-14 items-center rounded-full bg-terracotta px-8 text-[17px] font-medium text-primary-foreground transition-colors hover:bg-terracotta-hover"
+          >
+            {profile.email}
+          </a>
+        </Reveal>
 
         <div className="mt-16 flex w-full flex-wrap justify-between gap-6 border-t border-line-strong pt-6 text-sm text-ink-muted">
           <span>© {new Date().getFullYear()} {profile.name}</span>
