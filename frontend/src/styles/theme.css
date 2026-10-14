@@ -25,8 +25,8 @@
 
   /* Accents */
   --color-terracotta: #CF7D65;
-  --color-terracotta-hover: #B9664F;
-  --color-terracotta-deep: #A4513A; /* text-safe terracotta on light grounds */
+  --color-terracotta-hover: #D88D76; /* lighter on hover so dark button text keeps its contrast */
+  --color-terracotta-deep: #984A34; /* text-safe terracotta: 4.5:1+ on cream, peach and paper */
   --color-sage: #5F7F76;
   --color-sage-light: #99B4AA;
   --color-blush: #E1B8A2;
