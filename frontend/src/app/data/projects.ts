@@ -2,6 +2,8 @@ export type Project = {
   title: string;
   kind: string; // small label above the title, e.g. "Team project"
   blurb: string;
+  // Short bullet points, shown on the featured card only.
+  highlights?: string[];
   tech: string[];
   github?: string;
   demo?: string;
@@ -12,8 +14,22 @@ export type Project = {
   year?: string;
 };
 
-// TODO: add your newest, strongest project here with `featured: true`.
 export const projects: Project[] = [
+  {
+    title: "Lighthouse — AI research matching",
+    kind: "Team project · Live beta",
+    blurb:
+      "Research opportunities at Hopkins are scattered across department and faculty pages, so many qualified students never find them. Lighthouse brings 1,100+ of them into one place and matches them to each student.",
+    highlights: [
+      "Led development of the LLM recommendation engine: RAG, vector embeddings and semantic search matched to each student's résumé, skills and interests",
+      "Conversational AI search and smart filtering, so students can look for research in plain language",
+      "Live beta piloting at Johns Hopkins, with plans to expand to other universities",
+    ],
+    tech: ["LLMs", "RAG", "Vector embeddings", "Semantic search", "PostgreSQL", "Docker", "Clerk"],
+    // The repo is private; the card links to the live beta.
+    demo: "https://lighthouse-site.com",
+    featured: true,
+  },
   {
     title: "BookMatch — AI book recommendations",
     kind: "In progress",
