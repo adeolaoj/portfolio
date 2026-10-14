@@ -40,10 +40,11 @@ export const projects: Project[] = [
   },
   {
     title: "Atlas — AI study planner",
-    kind: "Team project",
+    kind: "Team project · Fall 2025",
     blurb:
-      "A web app that generates AI-driven study plans, quizzes and summaries for students, using GPT-4 for content and Firebase for auth and storage.",
-    tech: ["Next.js", "Python", "LangChain", "Firebase", "Render"],
+      "An AI study aid that turns students' notes and calendars into personalized study schedules, quizzes and summaries. I led the notes pipeline, using LangChain to share context across the AI features, and connected calendar and task data so study plans adapt to deadlines and workload.",
+    tech: ["Next.js", "FastAPI", "LangChain", "LLM orchestration", "Firebase"],
+    year: "2025",
     demo: "https://atlas-frontend-ok1k.onrender.com/",
   },
   {

@@ -18,11 +18,21 @@ export function NowStrip() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-8 pt-9 md:grid-cols-4">
+        <div className="grid gap-x-8 gap-y-7 pt-9 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div key={group.label} className="flex flex-col gap-2.5">
               <span className="eyebrow text-[11px] text-ink-muted">{group.label}</span>
-              <span className="leading-relaxed">{group.items.join(" · ")}</span>
+              <p className="leading-relaxed">
+                {group.items.map((item, i) => (
+                  <span key={item}>
+                    {/* each skill (and the dot after it) stays on one line; lines only break between skills */}
+                    <span className="whitespace-nowrap">
+                      {item}
+                      {i < group.items.length - 1 && " ·"}
+                    </span>{" "}
+                  </span>
+                ))}
+              </p>
             </div>
           ))}
         </div>
