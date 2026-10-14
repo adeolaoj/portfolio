@@ -47,7 +47,7 @@ function FeaturedCard({ project }: { project: Project }) {
       href={projectHref(project)}
       target="_blank"
       rel="noopener noreferrer"
-      className="mb-6 grid overflow-hidden rounded-feature border border-line bg-paper transition-colors hover:border-terracotta-deep md:grid-cols-[1.3fr_1fr]"
+      className="mb-10 grid overflow-hidden rounded-feature border border-line bg-paper transition-colors hover:border-terracotta-deep md:grid-cols-[1.3fr_1fr]"
     >
       <Screenshot project={project} ground="bg-sage-light" className="aspect-[16/10] md:aspect-auto md:min-h-[400px] md:p-8" />
       <div className="flex flex-col justify-between gap-6 p-6 md:p-10">
@@ -127,7 +127,7 @@ export function Work() {
 
         {featuredProject && <FeaturedCard project={featuredProject} />}
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {otherProjects.map((p, i) => (
             <ProjectCard key={p.title} project={p} ground={grounds[i % grounds.length]} />
           ))}
