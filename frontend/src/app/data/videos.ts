@@ -5,12 +5,12 @@ export type Video = {
 };
 
 export const videosIntro =
-  "Vlogs with friends and family — my favorite way to stay creative and connect with people.";
+  "Making vlogs with friends and family is my favorite way to stay creative and connect with people.";
 
 // The first video is shown large; the next three are listed beside it.
 // TODO: add each video's title (and a date if you like).
 export const videos: Video[] = [
-  { id: "sRqddRkwlsk" },
-  { id: "xTMuMe0ZcdE" },
-  { id: "IK1QMaGnSvc" },
+  { id: "xTMuMe0ZcdE", title: "ranking PRIME VIDEO romcoms | *SPOILERS*", date: "Sep 2026" },
+  { id: "sRqddRkwlsk", title: "last week of fall classes at johns hopkins | final projects, ASA fashion show", date: "Jan 2025" },
+  { id: "IK1QMaGnSvc", title: "vlogmas day one! | touring apartments, prepping for finals, hopkins day in the life", date: "Dec 2024" },
 ];

@@ -78,7 +78,7 @@ function MobileMenu() {
           <div className="mt-auto flex flex-col gap-4">
             {profile.resumeUrl && (
               <a href={profile.resumeUrl} className={`${resumeButton} min-h-12 justify-center text-base`}>
-                Résumé
+                Resume
               </a>
             )}
             <div className="flex gap-1">
@@ -121,7 +121,7 @@ export function Nav() {
           ))}
           {profile.resumeUrl && (
             <a href={profile.resumeUrl} className={`${resumeButton} ml-3`}>
-              Résumé
+              Resume
             </a>
           )}
         </div>

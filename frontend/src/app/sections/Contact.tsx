@@ -13,7 +13,7 @@ export function Contact() {
     <footer id="contact" className="bg-peach">
       <div className="container-page flex flex-col items-center gap-6 pt-24 pb-10 text-center md:pt-30">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="text-[clamp(2.75rem,6.4vw,5.5rem)] leading-none tracking-[-0.04em]">Let's build something.</h2>
+          <h2 className="text-[clamp(2.75rem,6.4vw,5.5rem)] leading-none tracking-[-0.04em]">Let's get into contact!</h2>
           <a
             href={`mailto:${profile.email}`}
             className="inline-flex min-h-14 items-center rounded-full bg-terracotta px-8 text-[17px] font-medium text-primary-foreground transition-colors hover:bg-terracotta-hover"

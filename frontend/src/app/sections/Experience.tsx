@@ -5,7 +5,7 @@ export function Experience() {
   return (
     <section id="experience" className="container-page py-24 md:py-30">
       <Reveal>
-        <h2 className="mb-10 text-4xl tracking-tight md:text-5xl">Where I've worked</h2>
+        <h2 className="mb-10 text-4xl tracking-tight md:text-5xl">My Education</h2>
         <ol className="border-t border-ink">
           {experience.map((item) => (
             <li

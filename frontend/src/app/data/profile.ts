@@ -16,12 +16,10 @@ export const profile = {
 
   status: "Open to full-time roles",
 
-  // TODO: rewrite in your own voice (and mention the master's program once confirmed).
   intro:
-    "I study Computer Science at Johns Hopkins and love building user-centered products that create impact. I work across AI, full-stack web and UI/UX — and when I'm not coding, I'm vlogging on YouTube.",
+    "I love building user-centered products that create impact. I work in AI, full-stack web dev and UI/UX/. When I'm not coding, I'm vlogging on YouTube.",
 
-  // TODO: add the résumé PDF to public/ and set this to "/resume.pdf".
-  // The Résumé buttons stay hidden while this is null.
+  // The Resume buttons stay hidden while this is null.
   resumeUrl: null as string | null,
 };
 

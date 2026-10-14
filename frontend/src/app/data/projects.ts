@@ -16,22 +16,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Lighthouse — AI research matching",
+    title: "Lighthouse: AI research matching",
     kind: "Team project · Live beta",
     blurb:
       "Research opportunities at Hopkins are scattered across department and faculty pages, so many qualified students never find them. Lighthouse brings 1,100+ of them into one place and matches them to each student.",
     highlights: [
-      "Led development of the LLM recommendation engine: RAG, vector embeddings and semantic search matched to each student's résumé, skills and interests",
-      "Conversational AI search and smart filtering, so students can look for research in plain language",
+      "I led the development of the LLM recommendation engine: RAG, vector embeddings and semantic search matched to each student's resume, skills and interests",
+      "The site includes conversational AI search and smart filtering, so students can look for research in plain language",
       "Live beta piloting at Johns Hopkins, with plans to expand to other universities",
     ],
     tech: ["LLMs", "RAG", "Vector embeddings", "Semantic search", "PostgreSQL", "Docker", "Clerk"],
-    // The repo is private; the card links to the live beta.
     demo: "https://lighthouse-site.com",
     featured: true,
   },
   {
-    title: "BookMatch — AI book recommendations",
+    title: "BookMatch: AI book recommendations",
     kind: "In progress",
     blurb:
       "A full-stack app that recommends books from your taste using collaborative filtering and NLP. React frontend done; Flask backend in progress.",
@@ -39,7 +38,7 @@ export const projects: Project[] = [
     github: "https://github.com/adeolaoj/book-match",
   },
   {
-    title: "Atlas — AI study planner",
+    title: "Atlas: AI study planner",
     kind: "Team project · Fall 2025",
     blurb:
       "An AI study aid that turns students' notes and calendars into personalized study schedules, quizzes and summaries. I led the notes pipeline, using LangChain to share context across the AI features, and connected calendar and task data so study plans adapt to deadlines and workload.",
@@ -48,7 +47,7 @@ export const projects: Project[] = [
     demo: "https://atlas-frontend-ok1k.onrender.com/",
   },
   {
-    title: "Ask Adeola — portfolio chatbot",
+    title: "Ask Adeola: portfolio chatbot",
     kind: "Side project",
     blurb:
       "A chatbot widget that answers questions about me, built on a custom-trained neural network with NLTK and a Flask backend.",
@@ -56,7 +55,7 @@ export const projects: Project[] = [
     github: "https://github.com/adeolaoj/portfolio-chatbot",
   },
   {
-    title: "OOTD — virtual closet app",
+    title: "OOTD: virtual closet app",
     kind: "Mobile app",
     blurb:
       "An Android app to organize your closet virtually and create and save outfits for later.",
