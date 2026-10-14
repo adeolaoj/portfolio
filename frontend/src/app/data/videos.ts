@@ -5,7 +5,7 @@ export type Video = {
 };
 
 export const videosIntro =
-  "Making vlogs with friends and family is my favorite way to stay creative and connect with people.";
+  "Making vlogs with friends and family is my favorite way to stay creative and connect with people!";
 
 // The first video is shown large; the next three are listed beside it.
 // TODO: add each video's title (and a date if you like).
