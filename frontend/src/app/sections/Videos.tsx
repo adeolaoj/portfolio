@@ -1,9 +1,76 @@
+import { useState } from "react";
+import { Play } from "lucide-react";
 import { SiYoutube } from "@icons-pack/react-simple-icons";
 import { links } from "../data/profile";
-import { videos, videosIntro } from "../data/videos";
+import { videos, videosIntro, type Video } from "../data/videos";
+
+const thumbnail = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+const watchUrl = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+
+// If a thumbnail fails to load, hide it so only the dark tile shows.
+const hideOnError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  e.currentTarget.style.visibility = "hidden";
+};
+
+// Shows the thumbnail first and only loads YouTube's player when clicked,
+// which keeps the page fast and free of YouTube tracking until then.
+function LatestVideo({ video }: { video: Video }) {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-3.5">
+      <div className="relative aspect-video overflow-hidden rounded-card bg-ink">
+        {playing ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="size-full"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label={`Play video: ${video.title}`}
+            className="group absolute inset-0 flex items-center justify-center"
+          >
+            <img src={thumbnail(video.id)} alt="" onError={hideOnError} className="absolute inset-0 size-full object-cover" />
+            <span className="relative inline-flex size-[72px] items-center justify-center rounded-full bg-terracotta text-primary-foreground shadow-lg transition-transform group-hover:scale-105">
+              <Play size={26} fill="currentColor" aria-hidden="true" />
+            </span>
+          </button>
+        )}
+      </div>
+      <span className="text-[19px] font-medium">{video.title}</span>
+    </div>
+  );
+}
+
+function VideoListItem({ video }: { video: Video }) {
+  return (
+    <li>
+      <a
+        href={watchUrl(video.id)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group grid grid-cols-[140px_minmax(0,1fr)] items-center gap-4"
+      >
+        <span className="aspect-video overflow-hidden rounded-xl bg-ink">
+          <img src={thumbnail(video.id)} alt="" loading="lazy" onError={hideOnError} className="size-full object-cover" />
+        </span>
+        <span className="flex flex-col gap-1">
+          <span className="font-medium transition-colors group-hover:text-blush">{video.title}</span>
+          {video.date && <span className="eyebrow text-[11px] text-blush">{video.date}</span>}
+        </span>
+      </a>
+    </li>
+  );
+}
 
 export function Videos() {
-  const [latest] = videos;
+  const [latest, ...rest] = videos;
+  const more = rest.slice(0, 3);
 
   return (
     <section id="videos" className="bg-cocoa py-24 text-on-dark md:py-30">
@@ -25,15 +92,15 @@ export function Videos() {
         </div>
 
         {latest && (
-          <div className="aspect-video overflow-hidden rounded-card bg-ink">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${latest.id}`}
-              title={latest.title}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="size-full"
-            />
+          <div className={more.length > 0 ? "grid gap-6 md:grid-cols-[1.6fr_1fr]" : ""}>
+            <LatestVideo video={latest} />
+            {more.length > 0 && (
+              <ul className="flex flex-col gap-5" aria-label="More videos">
+                {more.map((v) => (
+                  <VideoListItem key={v.id} video={v} />
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>
