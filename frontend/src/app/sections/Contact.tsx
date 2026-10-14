@@ -11,6 +11,9 @@ export function Contact() {
   return (
     <footer id="contact" className="bg-peach">
       <div className="container-page flex flex-col items-center gap-6 pt-24 pb-10 text-center md:pt-30">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" className="fill-terracotta-deep">
+          <path d="M12 0c.6 6.5 5.5 11.4 12 12-6.5.6-11.4 5.5-12 12-.6-6.5-5.5-11.4-12-12C6.5 11.4 11.4 6.5 12 0z" />
+        </svg>
         <h2 className="text-[clamp(2.75rem,6.4vw,5.5rem)] leading-none tracking-[-0.04em]">Let's build something.</h2>
         <a
           href={`mailto:${profile.email}`}
