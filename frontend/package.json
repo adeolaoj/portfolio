@@ -2,6 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.1",
+  "packageManager": "pnpm@10.28.0",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -90,6 +91,10 @@
   "pnpm": {
     "overrides": {
       "vite": "6.3.5"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild"
+    ]
   }
 }
