@@ -18,24 +18,6 @@ This project uses [pnpm](https://pnpm.io). From the `frontend` folder:
 
 Vercel runs `pnpm build` on every push, so `dist/` is not committed. Every branch gets its own preview link, and merging to `main` updates the live site.
 
-## Updating the content
-
-All the text lives in `frontend/src/app/data/`, so most updates never touch layout code:
-
-| File | What's in it |
-| --- | --- |
-| `profile.ts` | Name, email, cycling roles, "Open to…" status, intro, social links, résumé link |
-| `now.ts` | The Studying / Building / Exploring strip |
-| `skills.ts` | Skill groups |
-| `projects.ts` | Projects. Mark one `featured: true` for the large card; `highlights` adds bullet points to it |
-| `experience.ts` | "Where I've worked", newest first |
-| `videos.ts` | YouTube videos. The first is shown large, the next three are listed beside it |
-
-Images go in `frontend/public/` and are referenced from the site root:
-
-- **Project screenshots:** save as `public/projects/name.png` (16:10 works best) and set `screenshot: "/projects/name.png"` on the project.
-- **Résumé:** save as `public/resume.pdf` and set `resumeUrl: "/resume.pdf"` in `profile.ts`. The Résumé buttons appear once it's set.
-
 ## How it's organized
 
 ```
