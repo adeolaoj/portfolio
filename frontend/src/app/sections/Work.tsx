@@ -53,10 +53,20 @@ function FeaturedCard({ project }: { project: Project }) {
       <div className="flex flex-col justify-between gap-6 p-6 md:p-10">
         <div className="flex flex-col gap-4">
           <span className="eyebrow text-terracotta-deep">
-            Featured{project.year ? ` · ${project.year}` : ""}
+            Featured · {project.kind}{project.year ? ` · ${project.year}` : ""}
           </span>
           <h3 className="text-[28px] leading-tight md:text-[32px]">{project.title}</h3>
           <p className="leading-relaxed text-ink-soft">{project.blurb}</p>
+          {project.highlights && (
+            <ul className="flex flex-col gap-2.5">
+              {project.highlights.map((h) => (
+                <li key={h} className="flex gap-3 leading-relaxed text-ink-soft">
+                  <span aria-hidden="true" className="text-terracotta-deep">✦</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="flex flex-col gap-5">
           <ul className="flex flex-wrap gap-2" aria-label="Built with">
